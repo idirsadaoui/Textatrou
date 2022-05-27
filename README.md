@@ -7,4 +7,4 @@ Le jeu se met à jour automatiquement à chaque début de mois grâce au bot qui
 
 Pour jouer à Textatrou cliquez sur le lien suivant, Enjoy !
 
-https://idirsadaoui.shinyapps.io/Motamo/
+https://idirsadaoui.shinyapps.io/Textatrou/
