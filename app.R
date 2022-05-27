@@ -15,12 +15,6 @@ liste <- read_html("https://fr.wikipedia.org/wiki/Projet:Wikip%C3%A9dia_1.0/Les_
   html_text()
 
 
-
-# liste <- read_html("https://pageviews.wmcloud.org/topviews/?project=fr.wikipedia.org&platform=all-access&date=2022-05-21&excludes=") %>%
-#   html_nodes(".topview-entry--label a") %>%
-#   html_text()
-
-
 liste <- str_remove_all(liste,"\n")
 liste <- liste[nchar(liste) < 25]
 liste <- liste[nchar(liste) > 3]
@@ -141,7 +135,6 @@ rr <- c()
 for(i in 1:length(text6)){
   rr <- c(rr,c(text6[i],'<br/>','<br/>'))
 }
-#rr <- rr[-c(length(rr),length(rr)-1)]
 rr <- c('<br/>',rr)
 fin <- HTML(paste(rr,collapse= " "))
 
@@ -216,7 +209,6 @@ Play <- function(x){
         for(i in 1:length(texte7)){
           r <- c(r,c(texte7[i],'<br/>','<br/>'))
         }
-#        r <- r[-c(length(r),length(r)-1)]
         r <- c('<br/>',r)
         fin <- HTML(r,collapse= " ")
         fin <<- fin
@@ -380,7 +372,6 @@ NouvellePartie <- function(){
   for(i in 1:length(text6)){
     rr <- c(rr,c(text6[i],'<br/>','<br/>'))
   }
-#  rr <- rr[-c(length(rr),length(rr)-1)]
   rr <- c('<br/>',rr)
   rr <<- rr
   fin <- HTML(paste(rr,collapse= " "))
@@ -514,7 +505,6 @@ ui <- navbarPage("Textatrou",
                           mainPanel(
                             br(),
                             br(),
-                            #textInput("user_text", label = " ", placeholder = "Entrer un mot :"),
                             tags$head(tags$script(HTML(jscode))),
                             tagList(
                               tagAppendAttributes(textInput("user_text", label = " ", placeholder = "Entrer un mot :"),`data-proxy-click` = "submit"
@@ -522,8 +512,6 @@ ui <- navbarPage("Textatrou",
                                tags$head(tags$style(HTML("#submit{ background-color: rgb(124,6,1); color: white}"))),
                                actionButton("submit", label = "Envoyer"),
                             ),
-                            # tags$head(tags$style(HTML("#submit{ background-color: rgb(124,6,1); color: white}"))),
-                            # actionButton("submit", label = "Envoyer"),
                             tags$head(tags$style(HTML("#text2{ color: rgb(38,65,71); white-space : normal; hyphens: auto; font-size: 22px; font-weight: bold}"))),
                             htmlOutput("text2"),
                             tags$head(tags$style(HTML("#text{ color: rgb(38,65,71); white-space : normal; hyphens: auto; font-size: 17px}"))),
