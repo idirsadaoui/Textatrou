@@ -242,6 +242,7 @@ NouvellePartie <- function(){
   
   liste <- str_remove_all(liste,"\n")
   liste <- liste[nchar(liste) < 25]
+  liste <- liste[nchar(liste) > 3]
   liste <- liste[-(which(str_detect(liste,"\\)")))]
   
   name <- liste[sample(1:length(liste),1)]
